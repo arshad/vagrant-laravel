@@ -6,8 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Load config
-  config_path = File.expand_path(File.dirname(__FILE__)) + "/config.json"
-  config = JSON.parse(File.read(config_path))
+  vagrant_config_path = File.expand_path(File.dirname(__FILE__)) + "/config.json"
+  vagrant_config = JSON.parse(File.read(vagrant_config_path))
 
   config.vm.box = "precise32"
 
@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => "install.sh"
 
-  config.vm.synced_folder config['host_path'], config['guest_path'], :mount_options => ["dmode=777", "fmode=666"]
+  config.vm.synced_folder vagrant_config['host_path'], vagrant_config['guest_path'], :mount_options => ["dmode=777", "fmode=666"]
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
