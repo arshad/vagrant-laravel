@@ -9,6 +9,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   vagrant_config_path = File.expand_path(File.dirname(__FILE__)) + "/config.json"
   vagrant_config = JSON.parse(File.read(vagrant_config_path))
 
+  # Networking
+  config.vm.network :private_network, ip: vagrant_config["ip"]
+  config.vm.hostname = vagrant_config["hostname"]
+  config.hostsupdater.aliases = vagrant_config["aliases"]
+
   config.vm.box = "precise32"
 
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
@@ -17,11 +22,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => "install.sh"
 
-  config.vm.synced_folder vagrant_config['host_path'], vagrant_config['guest_path'], :mount_options => ["dmode=777", "fmode=666"]
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777", "fmode=666"]
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
-  # config.ssh.forward_agent = true
+  config.ssh.forward_agent = true
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
