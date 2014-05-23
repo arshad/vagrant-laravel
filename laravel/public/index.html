@@ -18,7 +18,7 @@
             left: 50%;
             top: 50%;
             margin-left: -300px;
-            margin-top: -180px;
+            margin-top: -250px;
         }
 
         a, a:visited {
@@ -31,19 +31,25 @@
         }
 
         h2 {
-            font-size: 18px;;
+            font-size: 18px;
+            margin-bottom: 30px;
         }
 
         code {
+            text-align: left;
             background: #333;
             color: #e9e4e5;
             line-height: 1.9em;
             padding: 20px;
-            margin-top: 20px;
+            margin-bottom: 20px;
             border-radius: 5px;
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
             display: block;
+        }
+
+        p {
+            text-align: left;
         }
     </style>
     <style type="text/css"></style></head>
@@ -53,7 +59,11 @@
     <h1>You have NOT arrived yet.</h1>
     <h2>Put Laravel in the laravel directory and you're good to go.</h2>
 
-    <code>rm -rf ./laravel; <br/>composer create-project laravel/laravel laravel --prefer-dist</code>
+    <p>Remove the laravel directory.</p>
+    <code>rm -rf ./laravel</code>
+
+    <p>Install Laravel.</p>
+    <code>composer create-project laravel/laravel laravel --prefer-dist</code>
 </div>
 
 
