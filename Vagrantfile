@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Load config
   config_path = File.expand_path(File.dirname(__FILE__)) + "/config.json"
-  config = JSON.parse(File.read(vdd_config_path))
+  config = JSON.parse(File.read(config_path))
 
   config.vm.box = "precise32"
 
