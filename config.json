@@ -1,0 +1,7 @@
+{
+  "ip": "33.33.33.33",
+  "memory": "4096",
+  "host_path": "www/",
+  "guest_path": "/var/www",
+  "use_nfs": true
+}
