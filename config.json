@@ -2,5 +2,6 @@
   "ip": "192.168.56.100",
   "memory": "4096",
   "hostname": "laravel.local",
-  "aliases": []
+  "aliases": [],
+  "use_nfs": false
 }
